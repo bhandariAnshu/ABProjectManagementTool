@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ABProjectManagementTool.Areas.Identity.Data;
 using ABProjectManagementTool.Data;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ABProjectManagementToolContextConnection") ?? throw new InvalidOperationException("Connection string 'ABProjectManagementToolContextConnection' not found.");
@@ -27,6 +28,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
